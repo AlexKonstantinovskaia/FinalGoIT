@@ -1,0 +1,24 @@
+@mixin breakpoint( $point, $point2: 0 ) {
+	@if $point2 > $point {
+		@media (min-width: $point + px) and (max-width: $point2 + px) { @content }
+	} @else {
+		@media (min-width: $point + px) { @content }
+	}
+}
+
+@mixin box-sizing( $boxmodel ) {
+	-webkit-box-sizing: $boxmodel;
+	   -moz-box-sizing: $boxmodel;
+			box-sizing: $boxmodel;
+}
+
+@mixin clearfix() {
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}
